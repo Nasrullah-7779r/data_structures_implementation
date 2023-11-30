@@ -12,6 +12,7 @@ template <class T>
 LinkedList<T>::LinkedList() {
 	head = nullptr;
 	tail = nullptr;
+	length = 0;
 }
 
 template <class T>
@@ -59,7 +60,7 @@ template <class T>
 void LinkedList<T>::displayItems() {
 	
 	shared_ptr<ListItem<T>> current =  head;
-	
+	cout << endl;
 	while (current != nullptr) {
 		cout << current->value << " ";
 		current = current->next;
@@ -76,6 +77,7 @@ void LinkedList<T>::insertAtTail(T item){
 	if (tail == nullptr) {
 
 		head = tail = newItem;
+		length++;
 	}
 
 	else {
@@ -83,6 +85,7 @@ void LinkedList<T>::insertAtTail(T item){
 		newItem->prev = tail;
 		tail->next = newItem;
 		tail = newItem;
+		length++;
 	}
 
 }
@@ -106,6 +109,7 @@ void LinkedList<T>::insertAfter(T toInsert, T afterWhat){
 
 	if (current->value == afterWhat) {
 		insertOperationForInsertAfter(current, newItem);
+		length++;
 		return;
 	}
 
@@ -116,7 +120,7 @@ void LinkedList<T>::insertAfter(T toInsert, T afterWhat){
 				if (current->value == afterWhat) {
 
 					insertOperationForInsertAfter(current, newItem);
-					
+					length++;
 					return;
 				}
 		}
@@ -164,6 +168,7 @@ void LinkedList<T>::deleteElement(T item){
 
 	if (current->value == item) {
 		deleteHead();
+		length--;
 		return;
 	}
 		
@@ -176,7 +181,7 @@ void LinkedList<T>::deleteElement(T item){
 				
 				current->prev->next = current->next;
 				current->next->prev = current->prev;
-				
+				length--;
 				return;
 			}
 		}
@@ -192,7 +197,7 @@ void LinkedList<T>::deleteHead(){
 	if (headItem != nullptr) {
 		headItem = headItem->next;
 		head = headItem;
-
+		length--;
 		return;
 	}
 
@@ -208,7 +213,7 @@ void LinkedList<T>::deleteTail(){
 
 		tailItem->prev->next = nullptr;
 		tail = tailItem->prev;
-
+		length--;
 		return;
 	}
 

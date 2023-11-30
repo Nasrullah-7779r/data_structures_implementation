@@ -1,5 +1,8 @@
 #include <iostream>
 #include "LinkedList.cpp"
+#include "Stack.cpp"
+#include "Queue.cpp"
+
 
 using namespace std;
 
@@ -7,7 +10,22 @@ int main()
 {
 	LinkedList<int> l_list;
 
+	Stack<int> stack;
+
+	stack.push(30);
+	stack.push(70);
+	stack.push(20);
+	stack.push(60);
+
 	
+	stack.displayStackItems();
+	cout << "\nStack top is " << stack.top() << endl;
+	stack.pop();
+	cout << "\nStack after pop" << endl;
+	
+	stack.displayStackItems();
+
+	cout << "Stack length is " << stack.length();
 
 	l_list.insertAtHead(5);
 	l_list.insertAtHead(7);
@@ -45,9 +63,28 @@ int main()
 
 //	cout << "Founded value is " << l_list.searchFor(10)->value << endl;
 	//cout << "Founded value is " << l_list.searchFor(3)->value << endl;
-	*/
+	
 	l_list.displayItems();
 
 	l_list2.displayItems();
-		return 0;
+*/
+
+
+	Queue<int> queue;
+
+	queue.enqueue(105);
+	queue.enqueue(170);
+	queue.enqueue(130);
+	queue.enqueue(140);
+
+	cout<<queue.dequeue();
+
+	queue.displayQueueItems();
+
+	cout << "Queue length is " << queue.length();
+	cout << endl;
+
+
+
+	return 0;
 }

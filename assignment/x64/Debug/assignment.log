@@ -1,4 +1,5 @@
 ﻿  assignment.cpp
-  LinkedList.cpp
+  Queue.cpp
   Generating Code...
+H:\ITM\.Net\Projects\DS_Mid_Assignment\assignment\Stack.cpp(40): warning C4715: 'Stack<int>::pop': not all control paths return a value
   assignment.vcxproj -> H:\ITM\.Net\Projects\DS_Mid_Assignment\x64\Debug\assignment.exe
